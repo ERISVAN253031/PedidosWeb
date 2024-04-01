@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PedidosWeb.Models.Funcionarios>
+
+@{
+    ViewData["Title"] = "Lista Clientes";
+}
+<link href="https://cdn.datatables.net/v/dt/dt-2.0.3/datatables.min.css" rel="stylesheet">
+
+<div class="text-center">
+    <h1 class="display-4">Lista de Clientes</h1>
+    <div class="d-md-flex justify-content-md-end">
+        <a href="@Url.Action("Create", "Funcionarios")" class="btn btn-success" role="button">Cadastrar Cliente</a>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-between align-items-center">   
+    </div>
+ 
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+</div>
+<br />
+
+@if (Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table" id="table-clientes">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Celular</th>
+                    <th>Endereço</th>
+                    <th class="actions-header">Ações</th> 
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var funcionario in Model)
+                {
+                    <tr>
+                        <td>@funcionario.Id</td>
+                        <td>@funcionario.Nome</td>
+                        <td>@funcionario.Cpf</td>
+                        <td>@funcionario.Email</td>
+                        <td>@funcionario.Celular</td>
+                        <td>@funcionario.Endereco</td>
+                        <td class="text-end">
+                            <a asp-action="Edit" asp-route-id="@funcionario.Id" class="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action="Details" asp-route-id="@funcionario.Id" class="btn btn-info btn-sm">Detalhes</a>
+                            <a asp-action="Delete" asp-route-id="@funcionario.Id" class="btn btn-danger btn-sm">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>Não há registros de funcionários disponíveis.</p>
+}
+</div>

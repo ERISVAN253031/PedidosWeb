@@ -1,0 +1,69 @@
+﻿@model PedidosWeb.Models.Funcionarios
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cadastrar Clientes</h1>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label">Nome <span class="text-danger">*</span></label>
+                <input asp-for="Nome" class="form-control" required maxlength="100" placeholder="Digite o nome" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cpf" class="control-label">CPF <span class="text-danger">*</span></label>
+                <input asp-for="Cpf" id="Cpf" class="form-control" required placeholder="999.999.999-99" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">E-mail <span class="text-danger">*</span></label>
+                <input asp-for="Email" class="form-control" required email placeholder="Digite o e-mail" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Celular" class="control-label">Celular <span class="text-danger">*</span></label>
+                <input asp-for="Celular" id="Celular" class="form-control" required placeholder="(99) 99999-9999" />
+                <span asp-validation-for="Celular" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Endereco" class="control-label">Endereço <span class="text-danger">*</span></label>
+                <input asp-for="Endereco" class="form-control" required maxlength="200" placeholder="Digite o endereço" />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a href="@Url.Action("Index", "Home")" class="btn btn-secondary" role="button">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            
+            var cleaveCpf = new Cleave('#Cpf', {
+                delimiters: ['.', '.', '-'],
+                blocks: [3, 3, 3, 2],
+                uppercase: true
+            });
+
+            var cleaveCelular = new Cleave('#Celular', {
+                numericOnly: true,
+                blocks: [0, 2, 5, 4],
+                delimiters: ['(', ') ', '-'],
+                uppercase: true
+            });
+        });
+    </script>
+}

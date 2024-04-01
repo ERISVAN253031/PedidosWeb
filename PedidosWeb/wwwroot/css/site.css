@@ -1,0 +1,39 @@
+.background-image {
+    background-image: url("https://wallpaperaccess.com/full/2593208.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh; /* Define a altura como 100% da altura da janela */
+    display: flex; /* Permite centralizar o conteúdo verticalmente */
+    flex-direction: column; /* Alinha verticalmente o conteúdo */
+    justify-content: flex-start; /* Alinha o conteúdo no topo */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+}
+
+    .background-image h1, .background-image p {
+        color: black; /* Define a cor do texto para preto */
+    }
+
+    .background-image button {
+        margin-top: 20px; /* Adiciona um espaçamento acima do botão */
+    }
+
+    .close-alert{
+        position:absolute;
+        right:10px;
+        top:6px;
+        border-radius: 5px;
+        width: 35px;
+       height:45px;
+    }
+
+body {
+    background-color: #f8f9fa;
+}
+
+.containerF {
+    max-width: 500px;
+    margin: 100px auto;
+}
+
+

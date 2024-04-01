@@ -1,0 +1,70 @@
+﻿@model IEnumerable<PedidosWeb.Models.UsuarioModel>
+
+@{
+    ViewData["Title"] = "Lista de Usuários";
+}
+
+<link href="https://cdn.datatables.net/v/dt/dt-2.0.3/datatables.min.css" rel="stylesheet">
+
+<div class="text-center">
+    <h1 class="display-4">Lista de Usuários</h1>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a href="@Url.Action("Create", "Usuario")" class="btn btn-success" role="button">Cadastrar Usuários</a>
+    </div>
+    <br />
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+</div>
+<br />
+
+@if (Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table" id="table-clientes">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Login</th>
+                    <th>E-mail</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Login)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td style="text-align: right;">
+                            <a asp-controller="Usuario" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Editar</a>
+                            <a asp-controller="Usuario" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Detalhes</a>
+                            <a asp-controller="Usuario" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>Não há registros de usuário disponíveis.</p>
+}
+
