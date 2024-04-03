@@ -82,6 +82,8 @@ Conhecimento Avançado do Framework: O desenvolvimento do sistema permitiu explo
 Compreensão do Processo de Desenvolvimento: Participar do desenvolvimento completo de um sistema, desde a concepção até a implementação, proporcionou uma visão abrangente do processo de desenvolvimento de software, incluindo planejamento, codificação, testes e implantação.
 
 
+https://github.com/ERISVAN253031/PedidosWeb/assets/106634122/230ab66c-4251-4e66-bbce-fcf011f33dd6
+
 ## Página Inicial (Index)
 A tela inicial do sistema de vendas XPTO, onde os usuários são recebidos com uma mensagem de boas-vindas e são apresentadas opções para acessar o sistema.
 
@@ -139,6 +141,14 @@ O banco de dados do sistema de vendas XPTO possui várias tabelas que armazenam 
 *Usuários: Mantém os dados dos usuários do sistema, como nome de usuário, senha e permissões de acesso.
 
 ![image](https://github.com/ERISVAN253031/PedidosWeb/assets/106634122/102b66ef-e24b-431a-997e-2da55ad35979)
+
+![image](https://github.com/ERISVAN253031/PedidosWeb/assets/106634122/1e78c987-c31a-412a-be10-7c8af0573b07)
+
+![image](https://github.com/ERISVAN253031/PedidosWeb/assets/106634122/fce6a66d-771c-4784-983f-e7f1299bf03d)
+
+
+
+
 
 
 
